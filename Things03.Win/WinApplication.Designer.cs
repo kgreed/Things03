@@ -27,34 +27,21 @@
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
             this.module3 = new Things03.Module.Things03Module();
             this.module4 = new Things03.Module.Win.Things03WindowsFormsModule();
-            this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
-            this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
-            this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
+           
             this.conditionalAppearanceModule = new DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule();
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationWindowsFormsModule = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
-            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
+           
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // securityStrategyComplex1
             // 
-            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
-            this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.EF.PermissionPolicy.PermissionPolicyRole);
-            // ApplicationUser descends from PermissionPolicyUser and supports OAuth authentication. For more information, refer to the following help topic: https://docs.devexpress.com/eXpressAppFramework/402197
+               // ApplicationUser descends from PermissionPolicyUser and supports OAuth authentication. For more information, refer to the following help topic: https://docs.devexpress.com/eXpressAppFramework/402197
             // If your application uses PermissionPolicyUser or a custom user type, set the UserType property as follows:
-            this.securityStrategyComplex1.UserType = typeof(Things03.Module.BusinessObjects.ApplicationUser);
-            // 
-            // securityModule1
-            // 
-            this.securityModule1.UserType = typeof(Things03.Module.BusinessObjects.ApplicationUser);
+             
             // 
             // authenticationStandard1
-            // 
-            this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
-            // ApplicationUserLoginInfo is only necessary for applications that use the ApplicationUser user type.
-            // Comment out the following line if using PermissionPolicyUser or a custom user type.
-            this.authenticationStandard1.UserLoginInfoType = typeof(Things03.Module.BusinessObjects.ApplicationUserLoginInfo);
-            //
+                //
             // validationModule
             //
             this.validationModule.AllowValidationDetailsAccess = false;
@@ -67,8 +54,8 @@
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.module4);
-            this.Modules.Add(this.securityModule1);
-            this.Security = this.securityStrategyComplex1;
+             
+           
             this.Modules.Add(this.conditionalAppearanceModule);
             this.Modules.Add(this.validationModule);
             this.Modules.Add(this.validationWindowsFormsModule);
@@ -86,9 +73,9 @@
         private DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule module2;
         private Things03.Module.Things03Module module3;
         private Things03.Module.Win.Things03WindowsFormsModule module4;
-        private DevExpress.ExpressApp.Security.SecurityModule securityModule1;
-        private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;
-        private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;
+       
+     
+        
         private DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule conditionalAppearanceModule;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule;
         private DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule validationWindowsFormsModule;

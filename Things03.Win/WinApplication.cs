@@ -29,9 +29,9 @@ namespace Things03.Win {
                     // We recommend that you refer to the following help topic before you use an in-memory database: https://docs.microsoft.com/en-us/ef/core/testing/in-memory
                     //builder.UseInMemoryDatabase("InMemory");
                     builder.UseSqlServer(connectionString);
-                    builder.UseSecurity((ISelectDataSecurityProvider)Security);
+                   
                 });
-            SecuredEFCoreObjectSpaceProvider efCoreObjectSpaceProvider = new SecuredEFCoreObjectSpaceProvider((ISelectDataSecurityProvider)Security, dbContextFactory, TypesInfo);
+            EFCoreObjectSpaceProvider efCoreObjectSpaceProvider = new EFCoreObjectSpaceProvider(dbContextFactory, TypesInfo);
             args.ObjectSpaceProviders.Add(efCoreObjectSpaceProvider);
             args.ObjectSpaceProviders.Add(new NonPersistentObjectSpaceProvider(TypesInfo, null));
         }

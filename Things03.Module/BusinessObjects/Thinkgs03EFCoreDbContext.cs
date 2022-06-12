@@ -16,18 +16,6 @@ namespace Things03.Module.BusinessObjects
 
         public DbSet<Thing> Things { get; set; }
         public DbSet<ModuleInfo> ModulesInfo { get; set; }
-        public DbSet<ModelDifference> ModelDifferences { get; set; }
-        public DbSet<ModelDifferenceAspect> ModelDifferenceAspects { get; set; }
-        public DbSet<PermissionPolicyRole> Roles { get; set; }
-        public DbSet<ApplicationUser> Users { get; set; }
-        public DbSet<ApplicationUserLoginInfo> UserLoginInfos { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ApplicationUserLoginInfo>(b =>
-            {
-                b.HasIndex(nameof(DevExpress.ExpressApp.Security.ISecurityUserLoginInfo.LoginProviderName), nameof(DevExpress.ExpressApp.Security.ISecurityUserLoginInfo.ProviderUserKey)).IsUnique();
-            });
-        }
+         
     }
 }

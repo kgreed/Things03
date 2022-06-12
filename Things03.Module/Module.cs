@@ -19,8 +19,7 @@ namespace Things03.Module {
     public sealed partial class Things03Module : ModuleBase {
         public Things03Module() {
             InitializeComponent();
-			DevExpress.ExpressApp.Security.SecurityModule.UsedExportedTypes = DevExpress.Persistent.Base.UsedExportedTypes.Custom;
-        }
+		     }
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
             ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
             return new ModuleUpdater[] { updater };
