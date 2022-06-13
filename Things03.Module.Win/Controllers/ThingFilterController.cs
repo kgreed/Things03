@@ -26,7 +26,6 @@ namespace Things03.Module.Win.Controllers
             var detailView = Application.CreateDetailView(os, holder);
             holder.ObjectSpace = os;
             
-
             e.ShowViewParameters.CreatedView = detailView;
             e.ShowViewParameters.TargetWindow = TargetWindow.NewWindow;
             e.ShowViewParameters.NewWindowTarget = NewWindowTarget.MdiChild;
