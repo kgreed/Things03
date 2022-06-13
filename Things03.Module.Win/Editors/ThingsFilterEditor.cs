@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
@@ -8,7 +9,7 @@ using Things03.Module.BusinessObjects;
 namespace Things03.Module.Win.Editors
 {
     [PropertyEditor(typeof(ThingFilter), true)]
-    public class ThingsFilterEditor : WinPropertyEditor 
+    public class ThingsFilterEditor : WinPropertyEditor  
     {
         public ThingsFilterEditor(Type objectType, IModelMemberViewItem model) : base(objectType, model)
         {
@@ -56,5 +57,7 @@ namespace Things03.Module.Win.Editors
             var control = Control as ThingFilterControl;
             return control?.Filter;
         }
+
+        
     }
 }
