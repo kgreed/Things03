@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Things03.Module.Functions;
 
@@ -32,21 +31,17 @@ namespace Things03.Module.BusinessObjects
 
         public void ApplyFilter()
         {
+            Things = new List<Thing>();
+            if (ObjectSpace == null) return;
             var search = StringFunctions.SafeString(ThingFilter.Search);
             var sql = $"select Id, Name from Things where Name like '%{search}%'";
             var db = DataFunctions.MakeDbContext();
             var things1 = db.Things.FromSqlRaw(sql).ToList();
-            Things = new List<Thing>();
-            if (ObjectSpace == null) return;
+           
             foreach (Thing t in things1)
             {
-                Thing t2 = ObjectSpace.GetObject<Thing>(t);
-                Things.Add(t2);
-            
+                Things.Add(ObjectSpace.GetObject(t));
             }
-
-            
-
         }
     }
 }
