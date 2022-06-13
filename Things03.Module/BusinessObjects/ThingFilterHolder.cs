@@ -10,7 +10,7 @@ using Things03.Module.Functions;
 
 namespace Things03.Module.BusinessObjects
 {
-    [NavigationItem("Hidden")] // dont access via the navigation panel
+    [NavigationItem("OldWayUseRibbonInstead")] 
     [DomainComponent]
     public class ThingFilterHolder
     {
