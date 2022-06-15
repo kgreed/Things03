@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Things03.Module.Win.Controllers
 {
-    public class MyViewController : DeleteObjectsViewController
+    public class MyDeleteController : DeleteObjectsViewController
     {
-        public MyViewController() : base()
+        public MyDeleteController() : base()
         {
             // Target required Views (use the TargetXXX properties) and create their Actions.
 
