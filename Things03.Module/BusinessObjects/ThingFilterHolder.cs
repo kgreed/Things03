@@ -29,12 +29,12 @@ namespace Things03.Module.BusinessObjects
 
         [Browsable(false)] public IObjectSpace ObjectSpace { get; set; }
 
-        public void ApplyFilter()
+        public int ApplyFilter()
         {
             Things = new List<Thing>();
-            if (ObjectSpace == null) return;
+            if (ObjectSpace == null) return 0;
             var search = StringFunctions.SafeString(ThingFilter.Search);
-            var sql = $"select Id, Name from Things where Name like '%{search}%'";
+            var sql = $"select top 800 Id, Name from Things where Name like '%{search}%'";
             var db = DataFunctions.MakeDbContext();
             var things1 = db.Things.FromSqlRaw(sql).ToList();
            
@@ -42,6 +42,7 @@ namespace Things03.Module.BusinessObjects
             {
                 Things.Add(ObjectSpace.GetObject(t));
             }
+            return Things.Count;
         }
     }
 }

@@ -3,17 +3,46 @@ using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Win;
 using System.Linq;
 using Things03.Module.BusinessObjects;
+using Things03.Module.Functions;
 
 namespace Things03.Module.Win.Controllers
 {
     public class ThingFilterController : ViewController
     {
+        SimpleAction actionAdd100Records;
         SimpleAction actThingScreen;
         public ThingFilterController() : base()
         {
             TargetViewNesting = Nesting.Root;
             actThingScreen = new SimpleAction(this, "Things", "View");
             actThingScreen.Execute += actThingScreen_Execute;
+
+
+            actionAdd100Records = new SimpleAction(this, "Add100Records", "View");
+            actionAdd100Records.Execute += actionAdd100Records_Execute;
+            
+        }
+        private void actionAdd100Records_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var db = DataFunctions.MakeDbContext();
+            var startNum = db.Things.Count()+1;
+            for (int i = 0; i < 100; i++)
+            {
+
+                var thing = new Thing
+                {
+                    Name = $"Name  {i + startNum}"
+                };
+                db.Things.Add(thing);
+            }
+            db.SaveChanges();
+           
+            View.Refresh(); // doesnt work
+            View.RefreshDataSource(); // doesnt work
+           
+            var o = View.CurrentObject as ThingFilterHolder;
+            o.ApplyFilter(); // doesnt work
+           
         }
         private void actThingScreen_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
