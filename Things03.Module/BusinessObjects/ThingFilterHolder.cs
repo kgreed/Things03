@@ -12,7 +12,7 @@ namespace Things03.Module.BusinessObjects
 {
     [NavigationItem("OldWayUseRibbonInstead")]
     [DomainComponent]
-    public class ThingFilterHolder 
+    public class ThingFilterHolder : IObjectSpaceLink
     {
         public ThingFilterHolder()
         {
